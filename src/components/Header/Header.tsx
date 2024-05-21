@@ -20,7 +20,7 @@ function Header() {
             <div id="center">
                 <Input></Input>
             </div>
-            <div id="end">
+            <div id={styles["end"]}>
                 <Button className={styles["header-button_small"]}>
                     <Creation />
                 </Button>

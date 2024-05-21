@@ -1,5 +1,4 @@
 #container {
-  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,4 +10,10 @@
 
 .header-button_small {
   padding: 8px;
+}
+
+#end {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 }
