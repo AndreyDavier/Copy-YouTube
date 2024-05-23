@@ -4,20 +4,21 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import Shorts from './pages/Shorts/Shorts'
 import Subscriptions from './pages/Subscriptions/Subscriptions'
-import "./App.css"
+import styles from "./App.module.scss"
+import ScrollContainer from './components/ScrollContainer/ScrollContainer'
 
 function App() {
 
   return (
     <>
       <Header />
-      <div>
-        <div>
+      <div id={styles["content"]}>
+        <div id='items'>
           <Sidebar />
         </div>
-        <div>
-          <div>
-            Bloc
+        <div id='contentss'>
+          <div id='scroll-container'>
+            <ScrollContainer />
           </div>
           <div>
             <Routes>

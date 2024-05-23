@@ -5,21 +5,16 @@ import cl from "classnames"
 interface ButtonProps {
     children: ReactNode,
     className?: string
+    onClick?: () => void
 }
 
-const Button: FC<ButtonProps> = ({ className, children }) => {
+const Button: FC<ButtonProps> = ({ className, children, onClick }) => {
     return (
-        <button className={cl(className) + " " + styles.button}>{children}</button>
+        <button onClick={onClick} className={cl(className) + " " + styles.button}>{children}</button>
     )
 }
 
 
-// function Button({ children, className }: ButtonProps) {
 
-
-//     return (
-//         <button className={cl(className) + " " + styles.button}>{children}</button>
-//     )
-// }
 
 export default Button

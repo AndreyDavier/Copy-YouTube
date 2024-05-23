@@ -3,6 +3,18 @@
   align-items: center;
   justify-content: space-between;
 }
+#start {
+  display: flex;
+}
+
+#end {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+#center {
+  display: flex;
+}
 
 .header-logo {
   padding: 18px 14px 18px 16px;
@@ -10,10 +22,4 @@
 
 .header-button_small {
   padding: 8px;
-}
-
-#end {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
 }

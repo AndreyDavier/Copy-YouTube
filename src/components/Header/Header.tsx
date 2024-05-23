@@ -2,23 +2,37 @@ import Button from "../Button/Button"
 import styles from "./Header.module.scss"
 import Input from "../Input/Input"
 import Creation from "../Svg/Creation"
-
+import { Link } from "react-router-dom"
+import { useContext } from "react"
+import Context from "../../context/Context"
 
 
 
 function Header() {
+    const { setIsNavOpen, isNavOpen } = useContext(Context)
+
     return (
         <div id={styles["container"]}>
-            <div id="start">
-                <Button className={styles["header-button_small"]}>
+            <div id={styles["start"]}>
+                <Button onClick={() => setIsNavOpen(!isNavOpen)} className={styles["header-button_small"]}>
                     <img src="/sideBar.svg" alt="" />
                 </Button>
-                <Button className={styles["header-logo"]}>
+                <Link to={`/home`} className={styles["header-logo"]}>
                     <img src="/YuoTubeLogo.svg" alt="" />
-                </Button>
+                </Link>
             </div>
-            <div id="center">
-                <Input></Input>
+            <div id={styles["center"]}>
+                <form id="search-form" action="">
+                    <Input placeholder={"Введите запрос"} className={styles["header-search_input"]}></Input>
+                </form>
+                <Button>
+                    <img src="/iconlegacy.svg" alt="" />
+                </Button>
+                <div id={styles["voice-search-button"]}>
+                    <Button>
+                        <img src="/voice.svg" alt="" />
+                    </Button>
+                </div>
             </div>
             <div id={styles["end"]}>
                 <Button className={styles["header-button_small"]}>

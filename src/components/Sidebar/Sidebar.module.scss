@@ -3,9 +3,26 @@
 #subscriptions {
   display: flex;
   align-items: center;
+  padding: 0 12px;
+  img {
+    margin-right: 24px;
+  }
+
+  span {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+    width: 132px;
+  }
 }
 
 .navigator {
   display: flex;
   flex-direction: column;
+}
+
+.navigator--open {
+  span {
+    display: none;
+  }
 }
