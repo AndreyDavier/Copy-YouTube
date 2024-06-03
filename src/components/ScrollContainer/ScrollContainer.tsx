@@ -1,5 +1,8 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import styles from "./ScrollContainer.module.scss"
+
+
 
 interface ScrollContainerProps {
     id: number,
@@ -22,13 +25,29 @@ const ScrollContainer: FC = () => {
         }, {
             id: 4,
             title: "Сейчас в эфире"
+        }, {
+            id: 5,
+            title: "Джемы"
+        }, {
+            id: 6,
+            title: "Экшен и приключения"
+        }, {
+            id: 7,
+            title: "Недавно опубликованные"
+        }, {
+            id: 8,
+            title: "Просмотрено"
+        }, {
+            id: 9,
+            title: "Новое для вас"
         }
+
     ]
 
     return (
         <div>
             {scrollContainerItems.map(elem => (
-                <Link to={`/${elem.id}`} key={elem.id}>
+                <Link className={styles["scrollContainerItems"]} to={`/${elem.id}`} key={elem.id}>
                     <span>{elem.title}</span>
                 </Link>
             ))}

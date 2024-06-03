@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import styles from "./Sidebar.module.scss"
 import Context from "../../context/Context"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 
 
 
@@ -13,7 +13,7 @@ function Sidebar() {
 
     return (
         <nav className={`${styles["navigator"]} ${isNavOpen === false ? styles["navigator--open"] : ""}`}>
-            <Link id={styles["home"]} to="home">
+            <Link  id={styles["home"]} to="home">
                 <img src="/home.svg" alt="Home" />
                 <span>Главаня</span>
             </Link>

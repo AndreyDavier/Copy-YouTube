@@ -9,12 +9,12 @@ import Context from "../../context/Context"
 
 
 function Header() {
-    const { setIsNavOpen, isNavOpen } = useContext(Context)
+    const { navOpen, isNavOpen } = useContext(Context)
 
     return (
         <div id={styles["container"]}>
             <div id={styles["start"]}>
-                <Button onClick={() => setIsNavOpen(!isNavOpen)} className={styles["header-button_small"]}>
+                <Button onClick={() => navOpen(!isNavOpen)} className={styles["header-button_small"]}>
                     <img src="/sideBar.svg" alt="" />
                 </Button>
                 <Link to={`/home`} className={styles["header-logo"]}>
@@ -22,10 +22,10 @@ function Header() {
                 </Link>
             </div>
             <div id={styles["center"]}>
-                <form id="search-form" action="">
+                <div id={styles["search-form"]}>
                     <Input placeholder={"Введите запрос"} className={styles["header-search_input"]}></Input>
-                </form>
-                <Button>
+                </div>
+                <Button className={styles["icon-legacy"]}>
                     <img src="/iconlegacy.svg" alt="" />
                 </Button>
                 <div id={styles["voice-search-button"]}>
@@ -47,7 +47,7 @@ function Header() {
                     <img id="img" alt="Фото профиля" height="32" width="32" src="" />
                 </Button>
             </div>
-        </div>
+        </div >
     )
 }
 

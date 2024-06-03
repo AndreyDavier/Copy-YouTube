@@ -5,7 +5,6 @@ import Home from './pages/Home/Home'
 import Shorts from './pages/Shorts/Shorts'
 import Subscriptions from './pages/Subscriptions/Subscriptions'
 import styles from "./App.module.scss"
-import ScrollContainer from './components/ScrollContainer/ScrollContainer'
 
 function App() {
 
@@ -13,14 +12,11 @@ function App() {
     <>
       <Header />
       <div id={styles["content"]}>
-        <div id='items'>
+        <div id={styles["items"]}>
           <Sidebar />
         </div>
-        <div id='contentss'>
-          <div id='scroll-container'>
-            <ScrollContainer />
-          </div>
-          <div>
+        <div>
+          <div id={styles["contents"]}>
             <Routes>
               <Route
                 path='/home'
@@ -37,7 +33,7 @@ function App() {
             </Routes>
           </div>
         </div>
-      </div>
+      </div >
 
     </>
   )
