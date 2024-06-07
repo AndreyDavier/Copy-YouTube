@@ -22,9 +22,11 @@ function Header() {
                 </Link>
             </div>
             <div id={styles["center"]}>
-                <div id={styles["search-form"]}>
+                <form id={styles["search-form"]}>
+                    <img className={styles["header-form_search"]} src="/iconlegacy.svg" alt="" />
                     <Input placeholder={"Введите запрос"} className={styles["header-search_input"]}></Input>
-                </div>
+                    <img className={styles["header-from_tia-icon"]} src="/tia.png" alt="" width={19} height={11} />
+                </form>
                 <Button className={styles["icon-legacy"]}>
                     <img src="/iconlegacy.svg" alt="" />
                 </Button>

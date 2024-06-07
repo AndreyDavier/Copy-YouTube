@@ -18,11 +18,21 @@
   justify-content: center;
 }
 #search-form {
-  border: 1px solid black;
+  width: 536px;
+  border: 1px solid rgba(0, 0, 0, 0.178);
   padding: 0 4px 0 16px;
   margin-left: 32px;
   border-right: none;
   border-radius: 40px 0 0 40px;
+  display: flex;
+  align-items: center;
+}
+.header-form_search {
+  margin-right: 12px;
+  display: none;
+}
+.header-from_tia-icon {
+  margin-right: 12px;
 }
 
 .header-logo {
@@ -38,13 +48,14 @@
   height: 38px;
   outline: 0;
   outline-offset: 0;
+  width: 100%;
 }
 .icon-legacy {
   border-radius: 0 40px 40px 0;
   cursor: pointer;
   height: 40px;
   width: 64px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.178);
   display: flex;
   align-items: center;
   justify-content: center;

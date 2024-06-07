@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import styles from "./Sidebar.module.scss"
 import Context from "../../context/Context"
-import { useContext, useState } from "react"
+import { useContext } from "react"
+import cn from "classnames"
 
 
 
@@ -13,18 +14,18 @@ function Sidebar() {
 
     return (
         <nav className={`${styles["navigator"]} ${isNavOpen === false ? styles["navigator--open"] : ""}`}>
-            <Link  id={styles["home"]} to="home">
+            <NavLink className={({ isActive }) => cn(styles['nav-link'], { [styles.active]: isActive })} id={styles["home"]} to="home">
                 <img src="/home.svg" alt="Home" />
                 <span>Главаня</span>
-            </Link>
-            <Link id={styles["shorts"]} to="shorts">
+            </NavLink>
+            <NavLink className={({ isActive }) => cn(styles['nav-link'], { [styles.active]: isActive })} id={styles["shorts"]} to="shorts">
                 <img src="/iconshape.svg" alt="Shorts" />
                 <span>Shorts</span>
-            </Link>
-            <Link id={styles["subscriptions"]} to="subscriptions">
+            </NavLink>
+            <NavLink className={({ isActive }) => cn(styles['nav-link'], { [styles.active]: isActive })} id={styles["subscriptions"]} to="subscriptions">
                 <img src="/subscription.svg" alt="Subscriptions" />
                 <span>Подписки</span>
-            </Link>
+            </NavLink>
         </nav>
     )
 }

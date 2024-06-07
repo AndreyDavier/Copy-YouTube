@@ -9,7 +9,6 @@
   cursor: pointer;
   user-select: none;
   position: relative;
-  font-family: "Roboto", "Arial", sans-serif;
   font-size: 14px;
   line-height: 2rem;
   font-weight: 400;
@@ -17,7 +16,11 @@
   flex-direction: row;
   align-items: center;
   display: inline-flex;
-  border: 1px solid black;
   color: #0f0f0f;
   margin: 12px;
+  background: rgba(0, 0, 0, 0.05);
+}
+.active {
+  background: black;
+  color: #ffffff;
 }

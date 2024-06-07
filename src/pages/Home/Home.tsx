@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styles from "./Home.module.scss"
-import ScrollContainer from "../../components/ScrollContainer/ScrollContainer"
+// import ScrollContainer from "../../components/ScrollContainer/ScrollContainer"
 
 function Home() {
 
@@ -58,9 +58,6 @@ function Home() {
 
   return (
     <div className={styles["home-contents"]}>
-      <div id='scroll-container'>
-        <ScrollContainer />
-      </div>
       <div className="contents">
         {videos.map(elem => (
           <Link to={`/home/${elem.id}`} key={elem.id} className={styles["home-content_block"]}>

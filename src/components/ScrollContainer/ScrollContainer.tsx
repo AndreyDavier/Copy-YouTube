@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./ScrollContainer.module.scss"
+import cn from "classnames"
 
 
 
@@ -47,9 +48,9 @@ const ScrollContainer: FC = () => {
     return (
         <div>
             {scrollContainerItems.map(elem => (
-                <Link className={styles["scrollContainerItems"]} to={`/${elem.id}`} key={elem.id}>
+                <NavLink className={({ isActive }) => cn(styles["scrollContainerItems"], { [styles.active]: isActive })} to={`/${elem.id}`} key={elem.id}>
                     <span>{elem.title}</span>
-                </Link>
+                </NavLink>
             ))}
         </div>
     )
