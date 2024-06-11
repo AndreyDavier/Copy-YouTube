@@ -1,15 +1,12 @@
-import Header from './components/Header/Header'
-import Sidebar from './components/Sidebar/Sidebar'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/Home'
-import Shorts from './pages/Shorts/Shorts'
-import Subscriptions from './pages/Subscriptions/Subscriptions'
-import styles from "./App.module.scss"
-import ScrollContainer from './components/ScrollContainer/ScrollContainer'
-
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Shorts from "./pages/Shorts/Shorts";
+import Subscriptions from "./pages/Subscriptions/Subscriptions";
+import styles from "./App.module.scss";
 
 function App() {
-
   return (
     <>
       <Header />
@@ -18,30 +15,17 @@ function App() {
           <Sidebar />
         </div>
         <div>
-          <div id='scroll-container'>
-            <ScrollContainer />
-          </div>
           <div id={styles["contents"]}>
             <Routes>
-              <Route
-                path='/home'
-                element={<Home />}
-              />
-              <Route
-                path='/shorts'
-                element={<Shorts />}
-              />
-              <Route
-                path='/subscriptions'
-                element={<Subscriptions />}
-              />
+              <Route path="/" element={<Home />}/>
+              <Route path="/shorts" element={<Shorts />} />
+              <Route path="/subscriptions" element={<Subscriptions />} />
             </Routes>
           </div>
         </div>
-      </div >
-
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

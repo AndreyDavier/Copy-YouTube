@@ -1,73 +1,60 @@
-import { Link } from "react-router-dom"
-import styles from "./Home.module.scss"
-// import ScrollContainer from "../../components/ScrollContainer/ScrollContainer"
+import styles from "./Home.module.scss";
+import ScrollContainer from "../../components/ScrollContainer/ScrollContainer";
+import { FC, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function Home() {
+export const Home: FC = () => {
+  const apiUrl: string =
+    "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
 
-  interface Video {
-    id: number,
-    title: string,
-    author: string
-  }
+  const defaultValue = [];
+  const defaultStats = [];
+  const [vidoes, setVideos] = useState(defaultValue);
+  const [stats, setStats] = useState(defaultStats);
 
-  const videos: Video[] = [{
-    id: 1,
-    title: "React0",
-    author: "Andrey"
-  },
-  {
-    id: 2,
-    title: "React1",
-    author: "Andrey"
-  }, {
-    id: 3,
-    title: "React2",
-    author: "Andrey"
-  }, {
-    id: 4,
-    title: "React3",
-    author: "Andrey"
-  }, {
-    id: 5,
-    title: "React4",
-    author: "Andrey"
-  },
-  {
-    id: 6,
-    title: "React4",
-    author: "Andrey"
-  },
-  {
-    id: 7,
-    title: "React4",
-    author: "Andrey"
-  },
-  {
-    id: 8,
-    title: "React4",
-    author: "Andrey"
-  },
-  {
-    id: 9,
-    title: "React4",
-    author: "Andrey"
-  }
-  ]
+  const getVideo = async () => {
+    await fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        data.items.forEach((el) =>
+          fetch(
+            `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${el.snippet.resourceId.videoId}&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0`
+          )
+            .then((res) => res.json())
+            .then((data) => setStats(data.items))
+        );
+        setVideos(data.items);
+      });
+  };
 
-
+  useEffect(() => {
+    getVideo();
+  }, []);
 
   return (
     <div className={styles["home-contents"]}>
+      <div id="scroll-container">
+        <ScrollContainer />
+      </div>
       <div className="contents">
-        {videos.map(elem => (
-          <Link to={`/home/${elem.id}`} key={elem.id} className={styles["home-content_block"]}>
-            <h3>{elem.title}</h3>
-            <span>{elem.author}</span>
-          </Link>
-        ))}
+        {vidoes.map((video) =>
+          stats.map((stat) => (
+            <Link
+              to={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}
+            >
+              <img
+                width={300}
+                src={`${video.snippet.thumbnails.standard.url}`}
+                alt=""
+              />
+              <h4>{video.snippet.title}</h4>
+              <span>{stat.statistics.viewCount} просмотров</span>
+            </Link>
+          ))
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
