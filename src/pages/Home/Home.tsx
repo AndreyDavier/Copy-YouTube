@@ -2,13 +2,13 @@ import styles from "./Home.module.scss";
 import ScrollContainer from "../../components/ScrollContainer/ScrollContainer";
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HomeInterface, Snippet, Statistics } from "../../interaface/home.interface";
 
 export const Home: FC = () => {
-  const apiUrl: string =
-    "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
+  const apiUrl: string = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
 
-  const defaultValue = [];
-  const defaultStats = [];
+  const defaultValue: Snippet[] = [];
+  const defaultStats: Statistics[] = [];
   const [vidoes, setVideos] = useState(defaultValue);
   const [stats, setStats] = useState(defaultStats);
 
@@ -16,7 +16,9 @@ export const Home: FC = () => {
     await fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        data.items.forEach((el) =>
+        console.log(data.items[0]);
+
+        data.items.forEach((el: HomeInterface) =>
           fetch(
             `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&id=${el.snippet.resourceId.videoId}&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0`
           )
@@ -39,7 +41,7 @@ export const Home: FC = () => {
       <div className="contents">
         {vidoes.map((video) =>
           stats.map((stat) => (
-            <Link
+            <Link key={video.snippet.resourceId.videoId}
               to={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}
             >
               <img

@@ -5,6 +5,8 @@ import Home from "./pages/Home/Home";
 import Shorts from "./pages/Shorts/Shorts";
 import Subscriptions from "./pages/Subscriptions/Subscriptions";
 import styles from "./App.module.scss";
+import UrlResults from "./components/UrlResults/UrlResults";
+
 
 function App() {
   return (
@@ -17,9 +19,10 @@ function App() {
         <div>
           <div id={styles["contents"]}>
             <Routes>
-              <Route path="/" element={<Home />}/>
+              <Route path="/" element={<Home />} />
               <Route path="/shorts" element={<Shorts />} />
               <Route path="/subscriptions" element={<Subscriptions />} />
+              <Route path="/results" element={<UrlResults />} />
             </Routes>
           </div>
         </div>

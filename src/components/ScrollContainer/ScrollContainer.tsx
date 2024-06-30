@@ -52,7 +52,7 @@ const ScrollContainer: FC = () => {
   return (
     <div>
       {scrollContainerItems.map((elem) => (
-        <button
+        <button key={elem.id}
           onClick={() => setCategoryActiveId(elem.id)}
           className={cn(styles["scrollContainerItems"], {
             [styles.active]: elem.id === categoryActiveId,

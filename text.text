@@ -7,3 +7,7 @@ url   'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxR
 
 
 https://www.youtube.com/watch?v=ScgmlDb5ed4&t=1587s
+
+
+
+content, datails https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails%2C%20snippet&id=NRt98DYCtuQ&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0
