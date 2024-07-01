@@ -1,3 +1,7 @@
 :root {
     --min-height: 40px;
 }
+
+body {
+    font-family: "Roboto", sans-serif;
+}

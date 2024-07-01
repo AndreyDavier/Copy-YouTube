@@ -13,18 +13,16 @@ function App() {
     <>
       <Header />
       <div id={styles["content"]}>
-        <div id={styles["items"]}>
+        <div id={styles["sidebar"]}>
           <Sidebar />
         </div>
-        <div>
-          <div id={styles["contents"]}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/shorts" element={<Shorts />} />
-              <Route path="/subscriptions" element={<Subscriptions />} />
-              <Route path="/results" element={<UrlResults />} />
-            </Routes>
-          </div>
+        <div id={styles["contents"]}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shorts" element={<Shorts />} />
+            <Route path="/subscriptions" element={<Subscriptions />} />
+            <Route path="/results" element={<UrlResults />} />
+          </Routes>
         </div>
       </div>
     </>

@@ -50,7 +50,7 @@ const ScrollContainer: FC = () => {
   const [categoryActiveId, setCategoryActiveId] = useState(1);
 
   return (
-    <div>
+    <>
       {scrollContainerItems.map((elem) => (
         <button key={elem.id}
           onClick={() => setCategoryActiveId(elem.id)}
@@ -61,7 +61,7 @@ const ScrollContainer: FC = () => {
           {elem.title}
         </button>
       ))}
-    </div>
+    </>
   );
 };
 export default ScrollContainer;

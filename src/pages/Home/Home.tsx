@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { HomeInterface, Snippet, Statistics } from "../../interaface/home.interface";
 
 export const Home: FC = () => {
-  const apiUrl: string = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
+  const apiUrl: string = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
 
   const defaultValue: Snippet[] = [];
   const defaultStats: Statistics[] = [];
@@ -38,14 +38,14 @@ export const Home: FC = () => {
       <div id="scroll-container">
         <ScrollContainer />
       </div>
-      <div className="contents">
+      <div className={styles["contents"]}>
         {vidoes.map((video) =>
           stats.map((stat) => (
-            <Link key={video.snippet.resourceId.videoId}
-              to={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}
-            >
+            <Link className={styles["link-video"]}  key={video.snippet.resourceId.videoId}
+              to={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}>
               <img
                 width={300}
+                height={180}
                 src={`${video.snippet.thumbnails.standard.url}`}
                 alt=""
               />
