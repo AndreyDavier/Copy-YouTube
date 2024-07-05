@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { HomeInterface, Snippet, Statistics } from "../../interaface/home.interface";
 
 export const Home: FC = () => {
-  const apiUrl: string = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0";
 
   const defaultValue: Snippet[] = [];
   const defaultStats: Statistics[] = [];
@@ -13,7 +12,7 @@ export const Home: FC = () => {
   const [stats, setStats] = useState(defaultStats);
 
   const getVideo = async () => {
-    await fetch(apiUrl)
+    await fetch("https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=UUDzGdB9TTgFm8jRXn1tBdoA&key=AIzaSyCtKVNVQ1_HesG21Mb73i6tk2Ubf4a3fR0")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.items[0]);
@@ -41,7 +40,7 @@ export const Home: FC = () => {
       <div className={styles["contents"]}>
         {vidoes.map((video) =>
           stats.map((stat) => (
-            <Link className={styles["link-video"]}  key={video.snippet.resourceId.videoId}
+            <Link className={styles["link-video"]} key={video.snippet.resourceId.videoId}
               to={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`}>
               <img
                 width={300}

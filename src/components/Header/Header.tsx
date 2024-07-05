@@ -2,19 +2,23 @@ import Button from "../Button/Button";
 import styles from "./Header.module.scss";
 import Input from "../Input/Input";
 import Creation from "../Svg/Creation";
-import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import Context from "../../context/Context";
 
 function Header() {
+  const params = useParams()
   const { navOpen, isNavOpen } = useContext(Context);
   const [focusInput, setFocusInput] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(params.query ? params.query : "");
   const navigate = useNavigate()
+  useEffect(() => {
+    // console.log(params);
+  }, [params])
 
 
   const getSearchVideos = async (value: string) => {
-    navigate(`/results?query=${value}`)
+    navigate(`/results/${value}`)
   };
 
   return (
@@ -48,6 +52,7 @@ function Header() {
             onFocus={() => setFocusInput(true)}
             placeholder={"Введите запрос"}
             className={styles["header-search_input"]}
+            value={query}
           ></Input>
           <img
             className={styles["header-from_tia-icon"]}

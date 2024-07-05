@@ -6,18 +6,16 @@ interface ContextProviderProps {
 }
 
 const Context = createContext({
-    setIsNavOpen: () => { },
-    isNavOpen: true
+    navOpen: (value: boolean) => { },
+    isNavOpen: true,
+    setQuery: (value: string) => { },
+    query: ""
 })
 
 export const ContextProvider: FC<ContextProviderProps> = ({ children }) => {
 
     const value = localStorage.isNavOpen === "true" ? true : false
-
-
-
-
-
+    const [query, setQuery] = useState("")
     const [isNavOpen, setIsNavOpen] = useState(value)
 
     function navOpen(value: boolean) {
@@ -28,7 +26,7 @@ export const ContextProvider: FC<ContextProviderProps> = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{ isNavOpen, navOpen }}>
+        <Context.Provider value={{ isNavOpen, navOpen, query, setQuery }}>
             {children}
         </Context.Provider>
     )

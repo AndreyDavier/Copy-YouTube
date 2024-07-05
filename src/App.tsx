@@ -21,7 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shorts" element={<Shorts />} />
             <Route path="/subscriptions" element={<Subscriptions />} />
-            <Route path="/results" element={<UrlResults />} />
+            <Route path="/results/:query" element={<UrlResults />} />
           </Routes>
         </div>
       </div>

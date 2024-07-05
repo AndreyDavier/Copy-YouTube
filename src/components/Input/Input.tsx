@@ -8,6 +8,7 @@ interface Inputprops {
   onFocus: () => void;
   onBlur: () => void;
   onInput: FormEventHandler<HTMLInputElement>;
+  value: string;
 }
 
 const Input: FC<Inputprops> = ({
@@ -16,6 +17,7 @@ const Input: FC<Inputprops> = ({
   onFocus,
   onBlur,
   onInput,
+  value
 }) => {
   return (
     <input
@@ -25,6 +27,7 @@ const Input: FC<Inputprops> = ({
       className={cl(className) + " " + styles["search"]}
       type="text"
       placeholder={placeholder}
+      value={value}
     />
   );
 };
